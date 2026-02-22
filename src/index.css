@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600&family=Suranna&family=Ramabhadra&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-telugu-heading: "Suranna", serif;
+  --font-telugu-body: "Ramabhadra", sans-serif;
+  
+  --color-maroon: #800000;
+  --color-gold: #D4AF37;
+  --color-cream: #fdfbf7;
+  --color-rose-soft: #fff1f2;
+}
+
+@layer base {
+  body {
+    @apply bg-cream text-maroon font-sans antialiased;
+  }
+  
+  h1, h2, h3 {
+    @apply font-serif;
+  }
+}
+
+.telugu-heading {
+  font-family: "Suranna", serif;
+}
+
+.telugu-body {
+  font-family: "Ramabhadra", sans-serif;
+}
+
+@keyframes flow {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.river-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.05;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+  background-size: 200% 100%;
+  animation: flow 15s linear infinite;
+}
+
+.glow-text {
+  text-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+.gold-underline {
+  position: relative;
+}
+
+.gold-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #D4AF37;
+  transition: width 0.5s ease;
+}
+
+.gold-underline:hover::after {
+  width: 100%;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fdfbf7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #800000;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
